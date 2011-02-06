@@ -6,7 +6,15 @@ anyTag = function (conf) {
 		if (conf.tags.hasOwnProperty(k)) {
 			var tag = conf.tags[k];
 			custom_elements.push((tag.block ? '' : '~') + k);
-			extended_valid_elements.push(k);
+			var attrs = [];
+			if (tag.attr) {
+				for (var a in tag.attr) {
+					attrs.push(a);
+				}
+			};
+			extended_valid_elements.push(k +
+				(attrs.length ? '[' + attrs.join('|') + ']' : '')
+			);
 		}
 	}
 	this.custom_elements = function () {
