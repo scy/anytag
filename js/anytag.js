@@ -15,7 +15,9 @@ anyTag = function (conf) {
 					attrs.push(attrstr);
 				}
 			};
-			extended_valid_elements.push(k +
+			extended_valid_elements.push(
+				(tag.nonempty ? '-' : '') +
+				k +
 				(attrs.length ? '[' + attrs.join('|') + ']' : '')
 			);
 		}
