@@ -22,10 +22,11 @@
 					});
 					var handler = function () {
 						var sel = ed.selection;
+						var type = this.options.block ? 'div' : 'span';
 						sel.setContent(
-							'<' + this.tag + '>' +
+							'<' + type + ' _mce_name="' + this.tag + '">' +
 							sel.getContent() +
-							'</' + this.tag + '>'
+							'</' + type + '>'
 						);
 						return true;
 					};
