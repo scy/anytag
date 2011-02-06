@@ -9,7 +9,10 @@ anyTag = function (conf) {
 			var attrs = [];
 			if (tag.attr) {
 				for (var a in tag.attr) {
-					attrs.push(a);
+					var attrstr =
+						(tag.attr[a].required ? '!' : '') +
+						a;
+					attrs.push(attrstr);
 				}
 			};
 			extended_valid_elements.push(k +
