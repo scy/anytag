@@ -21,8 +21,12 @@
 						cmd: 'anytag_' + k
 					});
 					var handler = function () {
-						ed.execCommand('mceReplaceContent', false,
-							'<' + this.tag + '>{$selection}</' + this.tag + '>');
+						var sel = ed.selection;
+						sel.setContent(
+							'<' + this.tag + '>' +
+							sel.getContent() +
+							'</' + this.tag + '>'
+						);
 						return true;
 					};
 					handler.tag = k;
